@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📝 TEXT ZONE 📝 - The Bozone</title>
+    <link rel="stylesheet" href="text.css">
+</head>
+<body>
+    <div id="particles"></div>
+    
+    <marquee id="top-marquee" behavior="scroll" direction="right">
+        ✨ TEXT MANIPULATION STATION ✨ WHERE WORDS GO TO GET WEIRD ✨ ESTABLISHED IN THE BEFORE TIMES ✨
+    </marquee>
+
+    <div class="container">
+        <header class="main-header">
+            <h1 class="glitch-title">
+                <span class="rainbow-text">TXT ZONE</span>
+            </h1>
+            <h2 class="subtitle">linguistic chaos engine 🔥</h2>
+            <a href="index.html" class="back-button">⬅️ ESCAPE BACK TO INDEX</a>
+        </header>
+
+        <div class="tools-grid">
+            <!-- Text Reverser -->
+            <div class="tool-box" data-tool="reverse">
+                <h3 class="tool-title">🔄 REVERSE-O-MATIC 🔄</h3>
+                <textarea class="input-area" placeholder="Type something to reverse it..."></textarea>
+                <button class="action-btn">REVERSE IT!</button>
+                <div class="output-area"></div>
+            </div>
+
+            <!-- Case Converter -->
+            <div class="tool-box" data-tool="case">
+                <h3 class="tool-title">🔡 CASE CHAOS 🔡</h3>
+                <textarea class="input-area" placeholder="Enter text to mangle..."></textarea>
+                <div class="button-group">
+                    <button class="action-btn" data-case="upper">UPPER</button>
+                    <button class="action-btn" data-case="lower">lower</button>
+                    <button class="action-btn" data-case="alternate">aLtErNaTe</button>
+                    <button class="action-btn" data-case="random">RaNdOm</button>
+                    <button class="action-btn" data-case="title">Title Case</button>
+                </div>
+                <div class="output-area"></div>
+            </div>
+
+            <!-- Word Counter -->
+            <div class="tool-box" data-tool="count">
+                <h3 class="tool-title">🔢 WORD WIZARD 🔢</h3>
+                <textarea class="input-area" placeholder="Paste text to analyze..."></textarea>
+                <div class="stats-display">
+                    <div class="stat-item">Characters: <span id="char-count">0</span></div>
+                    <div class="stat-item">Words: <span id="word-count">0</span></div>
+                    <div class="stat-item">Lines: <span id="line-count">0</span></div>
+                    <div class="stat-item">Sentences: <span id="sentence-count">0</span></div>
+                    <div class="stat-item">Vowels: <span id="vowel-count">0</span></div>
+                    <div class="stat-item">Consonants: <span id="consonant-count">0</span></div>
+                    <div class="stat-item">Reading Time: <span id="read-time">0</span> min</div>
+                </div>
+            </div>
+
+            <!-- Zalgo Text -->
+            <div class="tool-box" data-tool="zalgo">
+                <h3 class="tool-title">👹 ZALGO SUMMONER 👹</h3>
+                <textarea class="input-area" placeholder="Summon the chaos..."></textarea>
+                <div class="control-group">
+                    <label>Chaos Level: <span id="zalgo-level">5</span></label>
+                    <input type="range" id="zalgo-intensity" min="1" max="10" value="5">
+                </div>
+                <button class="action-btn">UNLEASH ZALGO!</button>
+                <div class="output-area zalgo-output"></div>
+            </div>
+
+            <!-- Morse Code -->
+            <div class="tool-box" data-tool="morse">
+                <h3 class="tool-title">📡 MORSE TRANSLATOR 📡</h3>
+                <textarea class="input-area" placeholder="Enter text or morse code..."></textarea>
+                <div class="button-group">
+                    <button class="action-btn" data-morse="encode">TO MORSE</button>
+                    <button class="action-btn" data-morse="decode">FROM MORSE</button>
+                    <button class="action-btn" data-morse="audio">PLAY SOUND</button>
+                </div>
+                <div class="output-area"></div>
+            </div>
+
+            <!-- Binary Converter -->
+            <div class="tool-box" data-tool="binary">
+                <h3 class="tool-title">💾 BINARY BEAST 💾</h3>
+                <textarea class="input-area" placeholder="Text or binary..."></textarea>
+                <div class="button-group">
+                    <button class="action-btn" data-binary="encode">TO BINARY</button>
+                    <button class="action-btn" data-binary="decode">FROM BINARY</button>
+                </div>
+                <div class="output-area"></div>
+            </div>
+
+            <!-- Palindrome Checker -->
+            <div class="tool-box" data-tool="palindrome">
+                <h3 class="tool-title">🔁 PALINDROME POLICE 🔁</h3>
+                <textarea class="input-area" placeholder="Is it a palindrome? Let's find out..."></textarea>
+                <button class="action-btn">CHECK IT!</button>
+                <div class="output-area"></div>
+            </div>
+
+            <!-- Text Encryptor -->
+            <div class="tool-box" data-tool="caesar">
+                <h3 class="tool-title">🔐 CAESAR CIPHER 🔐</h3>
+                <textarea class="input-area" placeholder="Secret message goes here..."></textarea>
+                <div class="control-group">
+                    <label>Shift: <span id="shift-value">13</span></label>
+                    <input type="range" id="caesar-shift" min="1" max="25" value="13">
+                </div>
+                <div class="button-group">
+                    <button class="action-btn" data-caesar="encode">ENCRYPT</button>
+                    <button class="action-btn" data-caesar="decode">DECRYPT</button>
+                </div>
+                <div class="output-area"></div>
+            </div>
+
+            <!-- Pig Latin -->
+            <div class="tool-box" data-tool="piglatin">
+                <h3 class="tool-title">🐷 PIG LATIN-ATOR 🐷</h3>
+                <textarea class="input-area" placeholder="Translateyay isthay exttay..."></textarea>
+                <button class="action-btn">OINK OINK!</button>
+                <div class="output-area"></div>
+            </div>
+
+            <!-- Uwuifier -->
+            <div class="tool-box" data-tool="uwu">
+                <h3 class="tool-title">😺 UWU-IFIER 😺</h3>
+                <textarea class="input-area" placeholder="Nowmal text hewe..."></textarea>
+                <button class="action-btn">MAKE IT UWU!</button>
+                <div class="output-area"></div>
+            </div>
+
+            <!-- L33t Speak -->
+            <div class="tool-box" data-tool="leet">
+                <h3 class="tool-title">💻 L33T SP34K 💻</h3>
+                <textarea class="input-area" placeholder="n00b text here..."></textarea>
+                <div class="button-group">
+                    <button class="action-btn" data-leet="basic">BASIC L33T</button>
+                    <button class="action-btn" data-leet="advanced">ADVANCED</button>
+                    <button class="action-btn" data-leet="elite">ULTIMATE H4X0R</button>
+                </div>
+                <div class="output-area"></div>
+            </div>
+
+            <!-- Mockify -->
+            <div class="tool-box" data-tool="mock">
+                <h3 class="tool-title">🤡 MOCKIFIER 🤡</h3>
+                <textarea class="input-area" placeholder="something someone said..."></textarea>
+                <button class="action-btn">mOcKiFy iT!</button>
+                <div class="output-area"></div>
+            </div>
+
+            <!-- Word Scrambler -->
+            <div class="tool-box" data-tool="scramble">
+                <h3 class="tool-title">🌪️ WORD SCRAMBLER 🌪️</h3>
+                <textarea class="input-area" placeholder="Orderly words here..."></textarea>
+                <div class="button-group">
+                    <button class="action-btn" data-scramble="letters">SCRAMBLE LETTERS</button>
+                    <button class="action-btn" data-scramble="words">SCRAMBLE WORDS</button>
+                </div>
+                <div class="output-area"></div>
+            </div>
+
+            <!-- Char Replacer -->
+            <div class="tool-box" data-tool="replace">
+                <h3 class="tool-title">🔧 CHAR REPLACER 🔧</h3>
+                <textarea class="input-area" placeholder="Text to modify..."></textarea>
+                <div class="control-group">
+                    <input type="text" id="find-char" placeholder="Find" maxlength="10">
+                    <input type="text" id="replace-char" placeholder="Replace" maxlength="10">
+                </div>
+                <button class="action-btn">REPLACE!</button>
+                <div class="output-area"></div>
+            </div>
+
+            <!-- Number Base Converter -->
+            <div class="tool-box" data-tool="bases">
+                <h3 class="tool-title">🔢 BASE CONVERTER 🔢</h3>
+                <input type="text" class="input-field" placeholder="Enter number...">
+                <div class="base-outputs">
+                    <div class="base-result">Binary: <span id="base-binary">-</span></div>
+                    <div class="base-result">Octal: <span id="base-octal">-</span></div>
+                    <div class="base-result">Decimal: <span id="base-decimal">-</span></div>
+                    <div class="base-result">Hex: <span id="base-hex">-</span></div>
+                </div>
+            </div>
+
+            <!-- Math Calculator -->
+            <div class="tool-box" data-tool="calculator">
+                <h3 class="tool-title">🧮 CHAOS CALCULATOR 🧮</h3>
+                <input type="text" id="calc-display" class="calc-display" readonly>
+                <div class="calc-buttons">
+                    <button class="calc-btn" data-calc="7">7</button>
+                    <button class="calc-btn" data-calc="8">8</button>
+                    <button class="calc-btn" data-calc="9">9</button>
+                    <button class="calc-btn operator" data-calc="/">÷</button>
+                    <button class="calc-btn" data-calc="4">4</button>
+                    <button class="calc-btn" data-calc="5">5</button>
+                    <button class="calc-btn" data-calc="6">6</button>
+                    <button class="calc-btn operator" data-calc="*">×</button>
+                    <button class="calc-btn" data-calc="1">1</button>
+                    <button class="calc-btn" data-calc="2">2</button>
+                    <button class="calc-btn" data-calc="3">3</button>
+                    <button class="calc-btn operator" data-calc="-">-</button>
+                    <button class="calc-btn" data-calc="0">0</button>
+                    <button class="calc-btn" data-calc=".">.</button>
+                    <button class="calc-btn operator" data-calc="=">=</button>
+                    <button class="calc-btn operator" data-calc="+">+</button>
+                    <button class="calc-btn clear" data-calc="C">C</button>
+                    <button class="calc-btn" data-calc="(">(</button>
+                    <button class="calc-btn" data-calc=")">)</button>
+                    <button class="calc-btn operator" data-calc="^">^</button>
+                </div>
+            </div>
+
+            <!-- Roman Numerals -->
+            <div class="tool-box" data-tool="roman">
+                <h3 class="tool-title">🏛️ ROMAN NUMERALS 🏛️</h3>
+                <input type="text" class="input-field" placeholder="Number or Roman...">
+                <div class="button-group">
+                    <button class="action-btn" data-roman="to">TO ROMAN</button>
+                    <button class="action-btn" data-roman="from">FROM ROMAN</button>
+                </div>
+                <div class="output-area"></div>
+            </div>
+
+            <!-- Anagram Finder -->
+            <div class="tool-box" data-tool="anagram">
+                <h3 class="tool-title">🔀 ANAGRAM CHECKER 🔀</h3>
+                <input type="text" class="input-field" placeholder="First word/phrase...">
+                <input type="text" class="input-field" placeholder="Second word/phrase...">
+                <button class="action-btn">CHECK ANAGRAM!</button>
+                <div class="output-area"></div>
+            </div>
+
+            <!-- Vowel Remover -->
+            <div class="tool-box" data-tool="vowels">
+                <h3 class="tool-title">❌ VOWEL DESTROYER ❌</h3>
+                <textarea class="input-area" placeholder="Text with vowels..."></textarea>
+                <div class="button-group">
+                    <button class="action-btn" data-vowel="remove">REMOVE VOWELS</button>
+                    <button class="action-btn" data-vowel="only">ONLY VOWELS</button>
+                </div>
+                <div class="output-area"></div>
+            </div>
+
+            <!-- Text Repeater -->
+            <div class="tool-box" data-tool="repeat">
+                <h3 class="tool-title">♻️ TEXT REPEATER ♻️</h3>
+                <input type="text" class="input-field" placeholder="Text to repeat...">
+                <div class="control-group">
+                    <label>Times: <span id="repeat-count">3</span></label>
+                    <input type="range" id="repeat-slider" min="1" max="100" value="3">
+                </div>
+                <button class="action-btn">REPEAT!</button>
+                <div class="output-area"></div>
+            </div>
+
+            <!-- ASCII Art Generator -->
+            <div class="tool-box" data-tool="ascii">
+                <h3 class="tool-title">🎨 ASCII ARTIST 🎨</h3>
+                <input type="text" class="input-field" placeholder="Text to ASCII-fy..." maxlength="20">
+                <div class="button-group">
+                    <button class="action-btn" data-ascii="small">SMALL</button>
+                    <button class="action-btn" data-ascii="medium">MEDIUM</button>
+                    <button class="action-btn" data-ascii="large">LARGE</button>
+                </div>
+                <div class="output-area ascii-output"></div>
+            </div>
+
+        </div>
+
+        <footer class="footer">
+            <marquee behavior="alternate">
+                ✨ ALL TEXT MANGLED WITH LOVE ✨ NO REFUNDS ✨
+            </marquee>
+            <p>© 1997-2099 THE BOZONE TEXT DIVISION | Corrupting Language Since Forever</p>
+            <div class="webring">
+                <a href="index.html">⬅️ BACK TO SAFETY</a>
+            </div>
+        </footer>
+    </div>
+
+    <div id="notification" class="notification hidden">
+        <span id="notification-text"></span>
+        <button id="close-notification">×</button>
+    </div>
+
+    <script src="text.js"></script>
+</body>
+</html>

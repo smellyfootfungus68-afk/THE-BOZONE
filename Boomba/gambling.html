@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💰 BOZONE CASINO 💰 WIN BIG OR GO HOME</title>
+    <link rel="stylesheet" href="gambling.css">
+</head>
+<body>
+    <div id="money-rain"></div>
+    <div id="floating-chips"></div>
+    
+    <marquee class="top-banner" behavior="scroll" direction="left">
+        💰💰💰 YOU COULD BE OUR NEXT BIG WINNER!!! 💰💰💰 DEPOSIT YOUR LIFE SAVINGS NOW!!! 💰💰💰 HOUSE ALWAYS WINS 💰💰💰
+    </marquee>
+
+    <div class="container">
+        <header class="casino-header">
+            <h1 class="neon-title">
+                <span class="flash-text">🎰 BOZONE CASINO 🎰</span>
+            </h1>
+            <h2 class="tagline">WHERE DREAMS COME TO GET REKT</h2>
+            <div class="balance-display">
+                <span class="balance-label">YOUR LIFE SAVINGS:</span>
+                <span id="balance" class="balance-amount">$1000.00</span>
+            </div>
+            <div class="streak-display">
+                <span>LOSING STREAK: <span id="losing-streak">0</span></span>
+                <span>WINS TODAY: <span id="wins-today">0</span></span>
+            </div>
+        </header>
+
+        <nav class="casino-nav">
+            <a href="index.html" class="escape-btn">🚪 ESCAPE WHILE YOU CAN 🚪</a>
+            <button id="add-money" class="sketchy-btn">💸 "BORROW" MORE MONEY 💸</button>
+            <button id="reset-balance" class="reset-btn">🔄 RESET SHAME 🔄</button>
+        </nav>
+
+        <div class="games-grid">
+            <!-- SLOT MACHINE -->
+            <div class="game-card">
+                <div class="game-header">
+                    <h3>🎰 SLOT MACHINE 🎰</h3>
+                    <div class="jackpot-display">JACKPOT: $<span id="jackpot">9999</span></div>
+                </div>
+                <div class="game-content">
+                    <div class="slot-machine">
+                        <div class="slot-reel" id="reel1">🍒</div>
+                        <div class="slot-reel" id="reel2">🍋</div>
+                        <div class="slot-reel" id="reel3">💎</div>
+                    </div>
+                    <div class="bet-controls">
+                        <label>BET: $<span id="slot-bet-display">10</span></label>
+                        <input type="range" id="slot-bet" min="1" max="500" value="10">
+                    </div>
+                    <button class="spin-btn" id="slot-spin">SPIN TO WIN</button>
+                    <div class="result-text" id="slot-result"></div>
+                </div>
+            </div>
+
+            <!-- ROULETTE -->
+            <div class="game-card">
+                <div class="game-header">
+                    <h3>🎡 ROULETTE 🎡</h3>
+                </div>
+                <div class="game-content">
+                    <div class="roulette-wheel" id="roulette-wheel">
+                        <div class="wheel-pointer">▼</div>
+                        <div class="wheel-inner">
+                            <div class="wheel-number">32</div>
+                        </div>
+                    </div>
+                    <div class="roulette-board">
+                        <button class="roulette-bet red" data-type="red">RED</button>
+                        <button class="roulette-bet black" data-type="black">BLACK</button>
+                        <button class="roulette-bet green" data-type="green">GREEN (00)</button>
+                        <button class="roulette-bet odd" data-type="odd">ODD</button>
+                        <button class="roulette-bet even" data-type="even">EVEN</button>
+                    </div>
+                    <div class="bet-controls">
+                        <label>BET: $<span id="roulette-bet-display">20</span></label>
+                        <input type="range" id="roulette-bet" min="5" max="500" value="20">
+                    </div>
+                    <div class="result-text" id="roulette-result"></div>
+                </div>
+            </div>
+
+            <!-- DICE ROLL -->
+            <div class="game-card">
+                <div class="game-header">
+                    <h3>🎲 DICE ROLLER 🎲</h3>
+                </div>
+                <div class="game-content">
+                    <div class="dice-container">
+                        <div class="die" id="die1">⚅</div>
+                        <div class="die" id="die2">⚅</div>
+                    </div>
+                    <div class="dice-bet-options">
+                        <button class="dice-bet-btn" data-bet="7">LUCKY 7 (5x)</button>
+                        <button class="dice-bet-btn" data-bet="high">HIGH (8-12) (2x)</button>
+                        <button class="dice-bet-btn" data-bet="low">LOW (2-6) (2x)</button>
+                        <button class="dice-bet-btn" data-bet="doubles">DOUBLES (4x)</button>
+                    </div>
+                    <div class="bet-controls">
+                        <label>BET: $<span id="dice-bet-display">15</span></label>
+                        <input type="range" id="dice-bet" min="5" max="300" value="15">
+                    </div>
+                    <div class="result-text" id="dice-result"></div>
+                </div>
+            </div>
+
+            <!-- COIN FLIP -->
+            <div class="game-card">
+                <div class="game-header">
+                    <h3>🪙 COIN FLIP 🪙</h3>
+                </div>
+                <div class="game-content">
+                    <div class="coin" id="coin">
+                        <div class="coin-side heads">HEADS</div>
+                        <div class="coin-side tails">TAILS</div>
+                    </div>
+                    <div class="coin-bet-options">
+                        <button class="coin-bet-btn" data-side="heads">BET HEADS</button>
+                        <button class="coin-bet-btn" data-side="tails">BET TAILS</button>
+                    </div>
+                    <div class="bet-controls">
+                        <label>BET: $<span id="coin-bet-display">25</span></label>
+                        <input type="range" id="coin-bet" min="10" max="500" value="25">
+                    </div>
+                    <div class="result-text" id="coin-result"></div>
+                </div>
+            </div>
+
+            <!-- SCRATCH CARD -->
+            <div class="game-card">
+                <div class="game-header">
+                    <h3>🎫 SCRATCH CARDS 🎫</h3>
+                </div>
+                <div class="game-content">
+                    <canvas id="scratch-canvas" width="300" height="200"></canvas>
+                    <div class="scratch-controls">
+                        <div>COST: $<span id="scratch-cost">50</span></div>
+                        <button id="buy-scratch">BUY NEW CARD</button>
+                    </div>
+                    <div class="result-text" id="scratch-result"></div>
+                </div>
+            </div>
+
+            <!-- HIGHER OR LOWER -->
+            <div class="game-card">
+                <div class="game-header">
+                    <h3>📈 HIGHER OR LOWER 📉</h3>
+                </div>
+                <div class="game-content">
+                    <div class="card-display">
+                        <div class="playing-card" id="current-card">
+                            <div class="card-value">7</div>
+                            <div class="card-suit">♥</div>
+                        </div>
+                        <div class="playing-card hidden" id="next-card">
+                            <div class="card-back">?</div>
+                        </div>
+                    </div>
+                    <div class="hilo-buttons">
+                        <button class="hilo-btn" data-guess="higher">📈 HIGHER</button>
+                        <button class="hilo-btn" data-guess="lower">📉 LOWER</button>
+                        <button class="hilo-btn" data-guess="same">= SAME</button>
+                    </div>
+                    <div class="bet-controls">
+                        <label>BET: $<span id="hilo-bet-display">20</span></label>
+                        <input type="range" id="hilo-bet" min="5" max="300" value="20">
+                    </div>
+                    <div class="streak-counter">STREAK: <span id="hilo-streak">0</span></div>
+                    <div class="result-text" id="hilo-result"></div>
+                </div>
+            </div>
+
+            <!-- LOTTERY -->
+            <div class="game-card">
+                <div class="game-header">
+                    <h3>🎰 LOTTERY 🎰</h3>
+                </div>
+                <div class="game-content">
+                    <div class="lottery-info">PICK 6 NUMBERS (1-49)</div>
+                    <div class="lottery-grid" id="lottery-grid"></div>
+                    <div class="selected-numbers">
+                        SELECTED: <span id="selected-nums">None</span>
+                    </div>
+                    <button id="lottery-play" disabled>PLAY ($100)</button>
+                    <button id="lottery-quick">QUICK PICK</button>
+                    <div class="winning-numbers">
+                        WINNING NUMBERS: <span id="winning-nums">? ? ? ? ? ?</span>
+                    </div>
+                    <div class="result-text" id="lottery-result"></div>
+                </div>
+            </div>
+
+            <!-- BLACKJACK -->
+            <div class="game-card large">
+                <div class="game-header">
+                    <h3>🃏 BLACKJACK 🃏</h3>
+                </div>
+                <div class="game-content">
+                    <div class="blackjack-table">
+                        <div class="dealer-section">
+                            <div class="hand-label">DEALER: <span id="dealer-score">0</span></div>
+                            <div class="card-row" id="dealer-cards"></div>
+                        </div>
+                        <div class="player-section">
+                            <div class="hand-label">YOU: <span id="player-score">0</span></div>
+                            <div class="card-row" id="player-cards"></div>
+                        </div>
+                    </div>
+                    <div class="blackjack-controls">
+                        <div class="bet-controls">
+                            <label>BET: $<span id="bj-bet-display">50</span></label>
+                            <input type="range" id="bj-bet" min="10" max="500" value="50">
+                        </div>
+                        <div class="action-buttons">
+                            <button id="bj-deal">DEAL</button>
+                            <button id="bj-hit" disabled>HIT</button>
+                            <button id="bj-stand" disabled>STAND</button>
+                            <button id="bj-double" disabled>DOUBLE DOWN</button>
+                        </div>
+                    </div>
+                    <div class="result-text" id="bj-result"></div>
+                </div>
+            </div>
+
+            <!-- CRASH GAME -->
+            <div class="game-card">
+                <div class="game-header">
+                    <h3>📈 CRASH 📉</h3>
+                </div>
+                <div class="game-content">
+                    <div class="crash-display">
+                        <div class="multiplier-display" id="crash-multiplier">1.00x</div>
+                        <canvas id="crash-graph" width="300" height="150"></canvas>
+                    </div>
+                    <div class="crash-controls">
+                        <div class="bet-controls">
+                            <label>BET: $<span id="crash-bet-display">30</span></label>
+                            <input type="range" id="crash-bet" min="10" max="500" value="30">
+                        </div>
+                        <button id="crash-start">START</button>
+                        <button id="crash-cashout" disabled>CASH OUT</button>
+                    </div>
+                    <div class="result-text" id="crash-result"></div>
+                </div>
+            </div>
+
+            <!-- PLINKO -->
+            <div class="game-card">
+                <div class="game-header">
+                    <h3>📍 PLINKO 📍</h3>
+                </div>
+                <div class="game-content">
+                    <canvas id="plinko-canvas" width="300" height="400"></canvas>
+                    <div class="plinko-multipliers">
+                        <span>10x</span>
+                        <span>5x</span>
+                        <span>2x</span>
+                        <span>1x</span>
+                        <span>0.5x</span>
+                        <span>1x</span>
+                        <span>2x</span>
+                        <span>5x</span>
+                        <span>10x</span>
+                    </div>
+                    <div class="bet-controls">
+                        <label>BET: $<span id="plinko-bet-display">20</span></label>
+                        <input type="range" id="plinko-bet" min="5" max="300" value="20">
+                    </div>
+                    <button id="plinko-drop">DROP BALL</button>
+                    <div class="result-text" id="plinko-result"></div>
+                </div>
+            </div>
+
+            <!-- MYSTERY BOX -->
+            <div class="game-card">
+                <div class="game-header">
+                    <h3>📦 MYSTERY BOX 📦</h3>
+                </div>
+                <div class="game-content">
+                    <div class="mystery-boxes">
+                        <div class="mystery-box" data-box="1">
+                            <div class="box-content">?</div>
+                        </div>
+                        <div class="mystery-box" data-box="2">
+                            <div class="box-content">?</div>
+                        </div>
+                        <div class="mystery-box" data-box="3">
+                            <div class="box-content">?</div>
+                        </div>
+                    </div>
+                    <div class="mystery-info">ONE BOX HAS 10x, ONE HAS 2x, ONE HAS 💀</div>
+                    <div class="bet-controls">
+                        <label>BET: $<span id="mystery-bet-display">40</span></label>
+                        <input type="range" id="mystery-bet" min="10" max="300" value="40">
+                    </div>
+                    <div class="result-text" id="mystery-result"></div>
+                </div>
+            </div>
+
+            <!-- SPIN THE WHEEL -->
+            <div class="game-card">
+                <div class="game-header">
+                    <h3>🎡 SPIN THE WHEEL 🎡</h3>
+                </div>
+                <div class="game-content">
+                    <div class="prize-wheel-container">
+                        <div class="wheel-spinner" id="prize-wheel">
+                            <canvas id="wheel-canvas" width="250" height="250"></canvas>
+                        </div>
+                        <div class="wheel-pointer-marker">▶</div>
+                    </div>
+                    <div class="bet-controls">
+                        <label>BET: $<span id="wheel-bet-display">35</span></label>
+                        <input type="range" id="wheel-bet" min="10" max="400" value="35">
+                    </div>
+                    <button id="spin-wheel">SPIN!</button>
+                    <div class="result-text" id="wheel-result"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <aside class="casino-sidebar">
+            <div class="widget flash-widget">
+                <h4>🔥 HOT STREAK 🔥</h4>
+                <marquee behavior="alternate">SOMEONE JUST WON $50000!!!</marquee>
+            </div>
+
+            <div class="widget">
+                <h4>💀 BANKRUPTCY COUNTER 💀</h4>
+                <div id="bankruptcy-count" class="big-number">0</div>
+            </div>
+
+            <div class="widget">
+                <h4>📊 STATISTICS 📊</h4>
+                <div class="stats">
+                    <div>TOTAL WAGERED: $<span id="total-wagered">0</span></div>
+                    <div>TOTAL WON: $<span id="total-won">0</span></div>
+                    <div>TOTAL LOST: $<span id="total-lost">0</span></div>
+                    <div>WIN RATE: <span id="win-rate">0</span>%</div>
+                </div>
+            </div>
+
+            <div class="widget">
+                <h4>🎲 LUCKY NUMBER 🎲</h4>
+                <div id="lucky-number" class="big-number">7</div>
+            </div>
+
+            <div class="widget warning-widget">
+                <h4>⚠️ DISCLAIMER ⚠️</h4>
+                <marquee direction="up" height="100">
+                    This is fake gambling with fake money. Please don't actually gamble your real money. 
+                    The house always wins. Gambling addiction is real. Get help if you need it.
+                </marquee>
+            </div>
+        </aside>
+
+    </div>
+
+    <marquee class="bottom-banner" behavior="scroll" direction="right">
+        🎰 RESPONSIBLE GAMBLING: KNOW WHEN TO FOLD 'EM 🎰 CALL 1-800-GAMBLER FOR HELP 🎰 THIS IS SATIRE 🎰
+    </marquee>
+
+    <div id="win-popup" class="popup hidden">
+        <div class="popup-content">
+            <h2>🎉 BIG WIN! 🎉</h2>
+            <div id="win-amount"></div>
+            <button id="close-win">CLAIM</button>
+        </div>
+    </div>
+
+    <div id="bankrupt-popup" class="popup hidden">
+        <div class="popup-content">
+            <h2>💀 BANKRUPT! 💀</h2>
+            <p>You've lost everything!</p>
+            <button id="close-bankrupt">WALLOW IN SHAME</button>
+        </div>
+    </div>
+
+    <script src="gambling.js"></script>
+</body>
+</html>

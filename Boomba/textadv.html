@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sjene Prokletstva</title>
+    <link rel="stylesheet" href="textadv.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>SJENE PROKLETSTVA</h1>
+            <div class="stats-bar">
+                <div class="stat">
+                    <span class="stat-label">Život:</span>
+                    <span id="health">100</span>/<span id="maxHealth">100</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Volja:</span>
+                    <span id="sanity">100</span>/100
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Lokacija:</span>
+                    <span id="location">???</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="game-area">
+            <div id="story-text" class="story-section"></div>
+            
+            <div class="inventory-section">
+                <h3>Inventar</h3>
+                <div id="inventory"></div>
+            </div>
+            
+            <div class="choices-section" id="choices"></div>
+            
+            <div class="command-section">
+                <input type="text" id="command-input" placeholder="Upiši naredbu... (pomoć za listu naredbi)" autocomplete="off">
+                <button id="command-submit">Izvrši</button>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <button id="restart-btn">Nova Igra</button>
+            <button id="save-btn">Spremi</button>
+            <button id="load-btn">Učitaj</button>
+        </div>
+    </div>
+    
+    <script src="textadv.js"></script>
+</body>
+</html>

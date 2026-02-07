@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔊 AUDIO CHAOS ZONE 🔊</title>
+    <link rel="stylesheet" href="audio.css">
+</head>
+<body>
+    <div id="particle-container"></div>
+    
+    <marquee id="top-marquee" behavior="scroll" direction="right">
+        🎵 WELCOME TO THE AUDIO DIMENSION 🎵 WHERE SOUND BECOMES CHAOS 🎵 TURN UP YOUR SPEAKERS 🎵 OR DON'T 🎵
+    </marquee>
+
+    <div class="container">
+        <header class="main-header">
+            <a href="index.html" class="back-button">⬅️ ESCAPE BACK TO SAFETY</a>
+            <h1 class="glitch-text rainbow-text">AUDIO CHAOS ZONE</h1>
+            <h2 class="subtitle">your ears will never forgive you 👂💀</h2>
+        </header>
+
+        <!-- FREQUENCY GENERATOR -->
+        <section class="tool-section" id="freq-gen">
+            <div class="section-header">
+                <h3>🌊 FREQUENCY GENERATOR 🌊</h3>
+                <button class="collapse-btn">[-]</button>
+            </div>
+            <div class="section-content">
+                <div class="control-grid">
+                    <div class="control-item">
+                        <label>Frequency (Hz):</label>
+                        <input type="range" id="freq-slider" min="20" max="20000" value="440" step="1">
+                        <input type="number" id="freq-input" min="20" max="20000" value="440">
+                    </div>
+                    <div class="control-item">
+                        <label>Wave Type:</label>
+                        <select id="wave-type">
+                            <option value="sine">Sine 〰️</option>
+                            <option value="square">Square ⬜</option>
+                            <option value="sawtooth">Sawtooth 🪚</option>
+                            <option value="triangle">Triangle 🔺</option>
+                        </select>
+                    </div>
+                    <div class="control-item">
+                        <label>Volume:</label>
+                        <input type="range" id="freq-volume" min="0" max="100" value="30">
+                        <span id="freq-vol-display">30%</span>
+                    </div>
+                </div>
+                <div class="button-row">
+                    <button id="freq-play" class="big-btn">▶️ PLAY TONE</button>
+                    <button id="freq-stop" class="big-btn">⏹️ STOP</button>
+                    <button id="freq-random">🎲 RANDOM FREQ</button>
+                </div>
+                <canvas id="freq-visualizer" width="600" height="150"></canvas>
+            </div>
+        </section>
+
+        <!-- BEAT MACHINE -->
+        <section class="tool-section" id="beat-machine">
+            <div class="section-header">
+                <h3>🥁 BEAT MACHINE 9000 🥁</h3>
+                <button class="collapse-btn">[-]</button>
+            </div>
+            <div class="section-content">
+                <div class="control-grid">
+                    <div class="control-item">
+                        <label>BPM:</label>
+                        <input type="range" id="bpm-slider" min="40" max="240" value="120">
+                        <span id="bpm-display">120</span>
+                    </div>
+                    <div class="control-item full-width">
+                        <label>Pattern Length:</label>
+                        <input type="range" id="pattern-length" min="4" max="16" value="8">
+                        <span id="pattern-display">8 beats</span>
+                    </div>
+                </div>
+                
+                <div class="beat-grid">
+                    <div class="beat-row">
+                        <label>KICK 🦶</label>
+                        <div class="beat-cells" data-sound="kick"></div>
+                    </div>
+                    <div class="beat-row">
+                        <label>SNARE 🥁</label>
+                        <div class="beat-cells" data-sound="snare"></div>
+                    </div>
+                    <div class="beat-row">
+                        <label>HAT 🎩</label>
+                        <div class="beat-cells" data-sound="hat"></div>
+                    </div>
+                    <div class="beat-row">
+                        <label>CLAP 👏</label>
+                        <div class="beat-cells" data-sound="clap"></div>
+                    </div>
+                </div>
+                
+                <div class="button-row">
+                    <button id="beat-play" class="big-btn">▶️ PLAY</button>
+                    <button id="beat-stop" class="big-btn">⏹️ STOP</button>
+                    <button id="beat-clear">🗑️ CLEAR</button>
+                    <button id="beat-random">🎲 RANDOMIZE</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- KEYBOARD SYNTH -->
+        <section class="tool-section" id="keyboard">
+            <div class="section-header">
+                <h3>🎹 CHAOS KEYBOARD 🎹</h3>
+                <button class="collapse-btn">[-]</button>
+            </div>
+            <div class="section-content">
+                <div class="control-grid">
+                    <div class="control-item">
+                        <label>Synth Type:</label>
+                        <select id="synth-type">
+                            <option value="sine">Sine Wave</option>
+                            <option value="square">Square Wave</option>
+                            <option value="sawtooth">Sawtooth</option>
+                            <option value="triangle">Triangle</option>
+                        </select>
+                    </div>
+                    <div class="control-item">
+                        <label>Octave:</label>
+                        <input type="range" id="octave" min="2" max="6" value="4">
+                        <span id="octave-display">4</span>
+                    </div>
+                    <div class="control-item">
+                        <label>Attack:</label>
+                        <input type="range" id="attack" min="0" max="1000" value="10">
+                        <span id="attack-display">10ms</span>
+                    </div>
+                    <div class="control-item">
+                        <label>Release:</label>
+                        <input type="range" id="release" min="0" max="3000" value="300">
+                        <span id="release-display">300ms</span>
+                    </div>
+                </div>
+                
+                <div class="piano-keyboard">
+                    <!-- Will be generated by JS -->
+                </div>
+                
+                <div class="keyboard-help">
+                    Press keyboard keys: A S D F G H J K L for white keys | W E T Y U O P for black keys
+                </div>
+                
+                <canvas id="keyboard-visualizer" width="600" height="150"></canvas>
+            </div>
+        </section>
+
+        <!-- SOUNDBOARD -->
+        <section class="tool-section" id="soundboard">
+            <div class="section-header">
+                <h3>🔊 CHAOS SOUNDBOARD 🔊</h3>
+                <button class="collapse-btn">[-]</button>
+            </div>
+            <div class="section-content">
+                <div class="soundboard-grid">
+                    <button class="sound-btn" data-sound="airhorn">🚨 AIRHORN</button>
+                    <button class="sound-btn" data-sound="explosion">💥 BOOM</button>
+                    <button class="sound-btn" data-sound="laser">⚡ ZAP</button>
+                    <button class="sound-btn" data-sound="ding">🔔 DING</button>
+                    <button class="sound-btn" data-sound="boing">🎪 BOING</button>
+                    <button class="sound-btn" data-sound="crash">💫 CRASH</button>
+                    <button class="sound-btn" data-sound="whoosh">💨 WHOOSH</button>
+                    <button class="sound-btn" data-sound="beep">🤖 BEEP</button>
+                    <button class="sound-btn" data-sound="error">❌ ERROR</button>
+                    <button class="sound-btn" data-sound="coins">💰 COINS</button>
+                    <button class="sound-btn" data-sound="powerup">⭐ POWERUP</button>
+                    <button class="sound-btn" data-sound="glitch">👾 GLITCH</button>
+                </div>
+                <div class="control-item">
+                    <label>Soundboard Volume:</label>
+                    <input type="range" id="soundboard-volume" min="0" max="100" value="70">
+                    <span id="sb-vol-display">70%</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- AUDIO MIXER -->
+        <section class="tool-section" id="mixer">
+            <div class="section-header">
+                <h3>🎚️ CHAOTIC MIXER 🎚️</h3>
+                <button class="collapse-btn">[-]</button>
+            </div>
+            <div class="section-content">
+                <p class="info-text">Upload audio files and mix them together!</p>
+                <input type="file" id="audio-upload" accept="audio/*" multiple>
+                <div id="tracks-container"></div>
+                <div class="button-row">
+                    <button id="play-all">▶️ PLAY ALL</button>
+                    <button id="stop-all">⏹️ STOP ALL</button>
+                    <button id="clear-tracks">🗑️ CLEAR ALL</button>
+                </div>
+                <canvas id="mixer-visualizer" width="600" height="150"></canvas>
+            </div>
+        </section>
+
+        <!-- ECHO/EFFECTS -->
+        <section class="tool-section" id="effects">
+            <div class="section-header">
+                <h3>✨ EFFECT CHAOS ✨</h3>
+                <button class="collapse-btn">[-]</button>
+            </div>
+            <div class="section-content">
+                <p class="info-text">⚠️ Effects are currently visual demonstrations - full audio processing coming soon! ⚠️</p>
+                <div class="control-grid">
+                    <div class="control-item">
+                        <label>🔄 Reverb:</label>
+                        <input type="range" id="reverb" min="0" max="100" value="0">
+                        <span id="reverb-display">0%</span>
+                    </div>
+                    <div class="control-item">
+                        <label>🌀 Delay Time:</label>
+                        <input type="range" id="delay-time" min="0" max="2000" value="0">
+                        <span id="delay-display">0ms</span>
+                    </div>
+                    <div class="control-item">
+                        <label>🔁 Feedback:</label>
+                        <input type="range" id="feedback" min="0" max="90" value="0">
+                        <span id="feedback-display">0%</span>
+                    </div>
+                    <div class="control-item">
+                        <label>🎭 Distortion:</label>
+                        <input type="range" id="distortion" min="0" max="100" value="0">
+                        <span id="distortion-display">0</span>
+                    </div>
+                    <div class="control-item">
+                        <label>🌊 Low Pass Filter:</label>
+                        <input type="range" id="lowpass" min="20" max="20000" value="20000">
+                        <span id="lowpass-display">20000Hz</span>
+                    </div>
+                    <div class="control-item">
+                        <label>⚡ High Pass Filter:</label>
+                        <input type="range" id="highpass" min="20" max="20000" value="20">
+                        <span id="highpass-display">20Hz</span>
+                    </div>
+                </div>
+                <button id="reset-effects">RESET ALL EFFECTS</button>
+            </div>
+        </section>
+
+        <!-- SEQUENCER -->
+        <section class="tool-section" id="sequencer">
+            <div class="section-header">
+                <h3>🎼 NOTE SEQUENCER 🎼</h3>
+                <button class="collapse-btn">[-]</button>
+            </div>
+            <div class="section-content">
+                <p class="info-text">Click the grid to create sequences - coming in next update!</p>
+                <div class="control-grid">
+                    <div class="control-item">
+                        <label>Tempo:</label>
+                        <input type="range" id="seq-tempo" min="40" max="240" value="120">
+                        <span id="seq-tempo-display">120 BPM</span>
+                    </div>
+                    <div class="control-item">
+                        <label>Scale:</label>
+                        <select id="seq-scale">
+                            <option value="major">Major</option>
+                            <option value="minor">Minor</option>
+                            <option value="pentatonic">Pentatonic</option>
+                            <option value="chromatic">Chromatic</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div id="sequencer-grid"></div>
+                
+                <div class="button-row">
+                    <button id="seq-play">▶️ PLAY</button>
+                    <button id="seq-stop">⏹️ STOP</button>
+                    <button id="seq-clear">🗑️ CLEAR</button>
+                    <button id="seq-random">🎲 RANDOM MELODY</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- NOISE GENERATOR -->
+        <section class="tool-section" id="noise">
+            <div class="section-header">
+                <h3>📻 NOISE GENERATOR 📻</h3>
+                <button class="collapse-btn">[-]</button>
+            </div>
+            <div class="section-content">
+                <div class="noise-buttons">
+                    <button class="noise-btn" data-noise="white">⬜ WHITE NOISE</button>
+                    <button class="noise-btn" data-noise="pink">🌸 PINK NOISE</button>
+                    <button class="noise-btn" data-noise="brown">🟤 BROWN NOISE</button>
+                    <button class="noise-btn" data-noise="radio">📻 RADIO STATIC</button>
+                </div>
+                <div class="control-item">
+                    <label>Noise Volume:</label>
+                    <input type="range" id="noise-volume" min="0" max="100" value="30">
+                    <span id="noise-vol-display">30%</span>
+                </div>
+                <button id="noise-stop" class="big-btn">⏹️ STOP NOISE</button>
+                <canvas id="noise-visualizer" width="600" height="150"></canvas>
+            </div>
+        </section>
+
+        <!-- VOICE MODIFIER -->
+        <section class="tool-section" id="voice-mod">
+            <div class="section-header">
+                <h3>🎤 VOICE DESTROYER 🎤</h3>
+                <button class="collapse-btn">[-]</button>
+            </div>
+            <div class="section-content">
+                <p class="warning-text">⚠️ NOTE: Microphone access may not work in all browsers! ⚠️</p>
+                <p class="info-text">This feature requires microphone permissions and may not work on all devices/browsers.</p>
+                <div class="control-grid">
+                    <div class="control-item">
+                        <label>Pitch Shift:</label>
+                        <input type="range" id="pitch-shift" min="-12" max="12" value="0">
+                        <span id="pitch-display">0</span>
+                    </div>
+                    <div class="control-item">
+                        <label>Robot Level:</label>
+                        <input type="range" id="robot-level" min="0" max="100" value="0">
+                        <span id="robot-display">0%</span>
+                    </div>
+                </div>
+                <div class="button-row">
+                    <button id="mic-start">🎤 START MIC</button>
+                    <button id="mic-stop">⏹️ STOP</button>
+                    <button id="preset-demon">😈 DEMON</button>
+                    <button id="preset-chipmunk">🐿️ CHIPMUNK</button>
+                    <button id="preset-robot">🤖 ROBOT</button>
+                </div>
+                <canvas id="mic-visualizer" width="600" height="150"></canvas>
+            </div>
+        </section>
+
+        <!-- METRONOME -->
+        <section class="tool-section" id="metronome">
+            <div class="section-header">
+                <h3>⏱️ CHAOS METRONOME ⏱️</h3>
+                <button class="collapse-btn">[-]</button>
+            </div>
+            <div class="section-content">
+                <div class="control-grid">
+                    <div class="control-item">
+                        <label>BPM:</label>
+                        <input type="range" id="metro-bpm" min="30" max="300" value="120">
+                        <span id="metro-bpm-display">120</span>
+                    </div>
+                    <div class="control-item">
+                        <label>Beats per Measure:</label>
+                        <input type="range" id="metro-beats" min="1" max="12" value="4">
+                        <span id="metro-beats-display">4</span>
+                    </div>
+                    <div class="control-item">
+                        <label>Volume:</label>
+                        <input type="range" id="metro-volume" min="0" max="100" value="50">
+                        <span id="metro-vol-display">50%</span>
+                    </div>
+                </div>
+                <div id="metro-visual"></div>
+                <div class="button-row">
+                    <button id="metro-start">▶️ START</button>
+                    <button id="metro-stop">⏹️ STOP</button>
+                    <button id="metro-tap">👆 TAP TEMPO</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- MASTER CONTROLS -->
+        <section class="tool-section master-controls">
+            <div class="section-header">
+                <h3>🎛️ MASTER CONTROLS 🎛️</h3>
+            </div>
+            <div class="section-content">
+                <div class="control-item">
+                    <label>🔊 MASTER VOLUME:</label>
+                    <input type="range" id="master-volume" min="0" max="100" value="70">
+                    <span id="master-vol-display">70%</span>
+                </div>
+                <div class="button-row">
+                    <button id="panic-button" class="panic-btn">🚨 STOP EVERYTHING 🚨</button>
+                    <button id="chaos-all">💥 ACTIVATE ALL CHAOS 💥</button>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <marquee behavior="alternate">
+                🔊 YOUR EARS ARE NOW PROPERTY OF THE BOZONE 🔊
+            </marquee>
+            <p>WARNING: Side effects may include permanent confusion and spontaneous dancing</p>
+            <a href="index.html" class="footer-link">← BACK TO THE BOZONE</a>
+        </footer>
+    </div>
+
+    <script src="audio.js"></script>
+</body>
+</html>
