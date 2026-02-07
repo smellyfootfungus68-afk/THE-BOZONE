@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Ascension - Incremental Game</title>
+    <link rel="stylesheet" href="incremental.css">
+</head>
+<body>
+    <div id="game-container">
+        <header>
+            <h1>⭐ COSMIC ASCENSION ⭐</h1>
+            <div id="prestige-info"></div>
+        </header>
+        
+        <div id="main-content">
+            <section id="resource-panel">
+                <div class="resource-display">
+                    <div class="resource-item">
+                        <span class="resource-label">Stardust</span>
+                        <span id="stardust-amount" class="resource-value">0</span>
+                        <span id="stardust-per-sec" class="per-sec">0/s</span>
+                    </div>
+                    <div class="resource-item">
+                        <span class="resource-label">Nebula Energy</span>
+                        <span id="nebula-amount" class="resource-value">0</span>
+                        <span id="nebula-per-sec" class="per-sec">0/s</span>
+                    </div>
+                    <div class="resource-item">
+                        <span class="resource-label">Cosmic Flux</span>
+                        <span id="flux-amount" class="resource-value">0</span>
+                        <span id="flux-per-sec" class="per-sec">0/s</span>
+                    </div>
+                    <div class="resource-item">
+                        <span class="resource-label">Dark Matter</span>
+                        <span id="darkmatter-amount" class="resource-value">0</span>
+                        <span id="darkmatter-per-sec" class="per-sec">0/s</span>
+                    </div>
+                    <div class="resource-item prestige-resource">
+                        <span class="resource-label">Ascension Points</span>
+                        <span id="ascension-amount" class="resource-value">0</span>
+                    </div>
+                    <div class="resource-item prestige-resource">
+                        <span class="resource-label">Transcendence Shards</span>
+                        <span id="transcendence-amount" class="resource-value">0</span>
+                    </div>
+                </div>
+                
+                <div id="click-area">
+                    <button id="main-click" class="cosmic-button">
+                        <div class="button-content">
+                            <span class="button-icon">✨</span>
+                            <span class="button-text">Harvest Stardust</span>
+                            <span class="button-value" id="click-value">+1</span>
+                        </div>
+                    </button>
+                    <div id="click-particles"></div>
+                </div>
+                
+                <div id="multiplier-display">
+                    <div class="multiplier-item">
+                        <span>Click Power: </span>
+                        <span id="click-multiplier">1x</span>
+                    </div>
+                    <div class="multiplier-item">
+                        <span>Production: </span>
+                        <span id="production-multiplier">1x</span>
+                    </div>
+                    <div class="multiplier-item">
+                        <span>Global: </span>
+                        <span id="global-multiplier">1x</span>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="tabs-section">
+                <div id="tab-buttons">
+                    <button class="tab-btn active" data-tab="producers">Producers</button>
+                    <button class="tab-btn" data-tab="upgrades">Upgrades</button>
+                    <button class="tab-btn" data-tab="automation">Automation</button>
+                    <button class="tab-btn" data-tab="prestige">Prestige</button>
+                    <button class="tab-btn" data-tab="achievements">Achievements</button>
+                    <button class="tab-btn" data-tab="research">Research</button>
+                    <button class="tab-btn" data-tab="challenges">Challenges</button>
+                    <button class="tab-btn" data-tab="statistics">Statistics</button>
+                </div>
+                
+                <div id="tab-content">
+                    <div id="producers-tab" class="tab-pane active">
+                        <h2>Cosmic Producers</h2>
+                        <div id="producers-list"></div>
+                    </div>
+                    
+                    <div id="upgrades-tab" class="tab-pane">
+                        <h2>Upgrades</h2>
+                        <div class="upgrade-category">
+                            <h3>Click Upgrades</h3>
+                            <div id="click-upgrades" class="upgrades-grid"></div>
+                        </div>
+                        <div class="upgrade-category">
+                            <h3>Production Upgrades</h3>
+                            <div id="production-upgrades" class="upgrades-grid"></div>
+                        </div>
+                        <div class="upgrade-category">
+                            <h3>Special Upgrades</h3>
+                            <div id="special-upgrades" class="upgrades-grid"></div>
+                        </div>
+                    </div>
+                    
+                    <div id="automation-tab" class="tab-pane">
+                        <h2>Automation Systems</h2>
+                        <div id="automation-list"></div>
+                    </div>
+                    
+                    <div id="prestige-tab" class="tab-pane">
+                        <h2>Ascension & Transcendence</h2>
+                        <div class="prestige-section">
+                            <h3>Ascension (Soft Reset)</h3>
+                            <p>Reset your progress to gain Ascension Points for permanent bonuses!</p>
+                            <div class="prestige-info">
+                                <span>Next Ascension: </span>
+                                <span id="ascension-gain">0</span>
+                                <span> Ascension Points</span>
+                            </div>
+                            <button id="ascension-btn" class="prestige-btn">Ascend</button>
+                            <div id="ascension-upgrades" class="prestige-upgrades"></div>
+                        </div>
+                        <div class="prestige-section">
+                            <h3>Transcendence (Hard Reset)</h3>
+                            <p>Complete reset for Transcendence Shards - ultimate power!</p>
+                            <div class="prestige-info">
+                                <span>Next Transcendence: </span>
+                                <span id="transcendence-gain">0</span>
+                                <span> Transcendence Shards</span>
+                            </div>
+                            <button id="transcendence-btn" class="prestige-btn">Transcend</button>
+                            <div id="transcendence-upgrades" class="prestige-upgrades"></div>
+                        </div>
+                    </div>
+                    
+                    <div id="achievements-tab" class="tab-pane">
+                        <h2>Achievements</h2>
+                        <div id="achievement-stats">
+                            <span>Unlocked: </span>
+                            <span id="achievement-count">0</span>
+                            <span>/</span>
+                            <span id="achievement-total">0</span>
+                        </div>
+                        <div id="achievements-grid"></div>
+                    </div>
+                    
+                    <div id="research-tab" class="tab-pane">
+                        <h2>Cosmic Research</h2>
+                        <p>Unlock powerful research trees using different resources!</p>
+                        <div id="research-trees"></div>
+                    </div>
+                    
+                    <div id="challenges-tab" class="tab-pane">
+                        <h2>Cosmic Challenges</h2>
+                        <p>Complete challenges for unique rewards and bonuses!</p>
+                        <div id="challenges-list"></div>
+                    </div>
+                    
+                    <div id="statistics-tab" class="tab-pane">
+                        <h2>Statistics</h2>
+                        <div id="statistics-grid"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <footer>
+            <button id="save-btn">💾 Save</button>
+            <button id="export-btn">📤 Export</button>
+            <button id="import-btn">📥 Import</button>
+            <button id="reset-btn">🔄 Hard Reset</button>
+            <span id="autosave-indicator">Last saved: Never</span>
+        </footer>
+    </div>
+    
+    <div id="notification-container"></div>
+    <div id="modal-overlay" class="hidden">
+        <div id="modal-content"></div>
+    </div>
+    
+    <script src="incremental.js"></script>
+</body>
+</html>

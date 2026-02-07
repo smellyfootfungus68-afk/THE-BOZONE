@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎮 2 PLAYER ZONE 🎮 - BATTLE YOUR FRIENDS!!!</title>
+<link rel="stylesheet" href="games2p.css">
+</head>
+<body>
+<div class="container">
+<header>
+<h1>🎮⚔️ TWO PLAYER BATTLEZONE ⚔️🎮</h1>
+
+<div class="marquee-container">
+<marquee>💥 GRAB A FRIEND! 💥 LOCAL MULTIPLAYER ACTION! 💥 NO INTERNET REQUIRED! 💥 EPIC BATTLES AWAIT! 💥</marquee>
+</div>
+</header>
+
+<div class="escape-container">
+  <a href="index.html" class="escape-btn">
+    <span class="escape-text">🚨 ESCAPE TO MAIN HUB 🚨</span>
+    <span class="escape-subtext">← GET ME OUTTA HERE! →</span>
+  </a>
+</div>
+
+<div class="game-grid">
+<div class="game-card" onclick="loadGame('snake')">
+<h3>🐍 SNAKE BATTLE</h3>
+<p>Classic snake but YOU FIGHT!</p>
+<div class="blink">CLICK TO PLAY!</div>
+</div>
+
+<div class="game-card" onclick="loadGame('pong')">
+<h3>🏓 CYBER PONG</h3>
+<p>Pong but EXTREME!!!</p>
+<div class="blink">CLICK TO PLAY!</div>
+</div>
+
+<div class="game-card" onclick="loadGame('tanks')">
+<h3>🎯 TANK WARS</h3>
+<p>Destroy your enemy!</p>
+<div class="blink">CLICK TO PLAY!</div>
+</div>
+
+<div class="game-card" onclick="loadGame('racing')">
+<h3>🏁 SPEED RACERS</h3>
+<p>Race to the finish!</p>
+<div class="blink">CLICK TO PLAY!</div>
+</div>
+
+<div class="game-card" onclick="loadGame('platforms')">
+<h3>📦 PLATFORM CHAOS</h3>
+<p>Jump & push battles!</p>
+<div class="blink">CLICK TO PLAY!</div>
+</div>
+
+<div class="game-card" onclick="loadGame('duel')">
+<h3>🔫 QUICK DRAW DUEL</h3>
+<p>Reaction speed test!</p>
+<div class="blink">CLICK TO PLAY!</div>
+</div>
+
+<div class="game-card" onclick="loadGame('soccer')">
+<h3>⚽ MICRO SOCCER</h3>
+<p>Score goals NOW!</p>
+<div class="blink">CLICK TO PLAY!</div>
+</div>
+
+<div class="game-card" onclick="loadGame('blocks')">
+<h3>🧱 BLOCK PUSHER</h3>
+<p>Push blocks = WIN!</p>
+<div class="blink">CLICK TO PLAY!</div>
+</div>
+
+<div class="game-card" onclick="loadGame('bomber')">
+<h3>💣 BOMB MANIA</h3>
+<p>Explosive chaos!</p>
+<div class="blink">CLICK TO PLAY!</div>
+</div>
+
+<div class="game-card" onclick="loadGame('space')">
+<h3>🚀 SPACE DOGFIGHT</h3>
+<p>Pew pew in space!</p>
+<div class="blink">CLICK TO PLAY!</div>
+</div>
+
+<div class="game-card" onclick="loadGame('tron')">
+<h3>💠 LIGHT CYCLES</h3>
+<p>TRON-style battles!</p>
+<div class="blink">CLICK TO PLAY!</div>
+</div>
+
+<div class="game-card" onclick="loadGame('sumo')">
+<h3>🥊 SUMO RING</h3>
+<p>Push out to win!</p>
+<div class="blink">CLICK TO PLAY!</div>
+</div>
+</div>
+
+<div id="game-container" class="hidden">
+<div class="game-header">
+<h2 id="game-title"></h2>
+<button onclick="backToMenu()" class="back-btn">⬅️ BACK TO MENU</button>
+</div>
+<div id="controls-info"></div>
+<canvas id="gameCanvas"></canvas>
+<div id="game-status"></div>
+</div>
+</div>
+
+<footer>
+<div class="visitor-counter">👾 VISITORS: <span id="counter">???</span> 👾</div>
+<marquee>🔥 MADE WITH PURE HTML5 CANVAS POWER 🔥 NO FLASH REQUIRED 🔥 BOOKMARK THIS PAGE 🔥</marquee>
+</footer>
+
+<script src="games2p.js"></script>
+</body>
+</html>
